@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя кнопка</title>
+    <style>
+        /* Центрируем картинку-кнопку на экране */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212; /* Темный фон, чтобы картинка выделялась */
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Настройки картинки-кнопки */
+        .image-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.1s ease; /* Плавный эффект при клике */
+        }
+
+        /* Сама картинка */
+        .image-btn img {
+            max-width: 300px; /* Максимальная ширина картинки (можешь менять) */
+            max-height: 300px;
+            display: block;
+            border-radius: 20px; /* Скругление углов картинки (удали строку, если не нужно) */
+            /* Если хочешь просто розовую кнопку без картинки, раскомментируй строки ниже: */
+            /* background-color: #ff69b4; padding: 20px 40px; */
+        }
+
+        /* Эффект нажатия: картинка слегка уменьшается */
+        .image-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Кнопка-картинка. Убедись, что имя файла картинки совпадает -->
+    <button class="image-btn" onclick="playSound()">
+        <img src="image.png" alt="Жмякни меня">
+    </button>
+
+    <!-- Аудиофайл -->
+    <audio id="my-audio" src="sound.mp3"></audio>
+
+    <script>
+        function playSound() {
+            const audio = document.getElementById('my-audio');
+            audio.currentTime = 0; // Сброс звука на начало при спаме кликами
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>
